@@ -1,0 +1,10 @@
+﻿@model Dictionary<string, double>
+
+@{
+    Layout = "_Layout";
+}
+
+<h4>Средний возраст среди женщин: @Model["Female"] </h4> <br />
+<h4>Срединй возраст среди мужчин: @Model["Male"]</h4> <br />
+<button class="btn btn-sm btn-outline-secondary" onclick="window.location.href='/Workers/List'">Вернуться к списку</button>
+

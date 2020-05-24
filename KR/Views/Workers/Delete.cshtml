@@ -1,0 +1,12 @@
+﻿@using KR.Core.Models
+@model Worker
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post">
+    <h2>Уверены, что хотите удалить запись о сотруднике @Model.LastName?</h2>
+    <button type="submit" value="True" name="isAgreed" class="btn btn-sm btn-outline-secondary">Удалить</button>
+    <button type="reset" class="btn btn-sm btn-outline-secondary" onclick="window.location.href='/Workers/List'">Отмена</button>
+</form>
