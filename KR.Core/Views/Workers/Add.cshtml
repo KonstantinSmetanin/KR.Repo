@@ -1,0 +1,60 @@
+﻿@using KR.Core.Mocks
+
+@{
+    Layout = "_Layout";
+}
+
+        <form method="post">
+
+            <div>
+                <label for="Lastname">Фамилия:</label> <br />
+                <input type="text" class="form-control" name="LastName" placeholder="Введите фамилию" autofocus required pattern="[А-Яа-я]{2,}" title="Только буквы русского алфавита. Не менее двух символов" /> <br />
+
+                <label for="BirthDate">Дата рождения:</label> <br />
+                <input type="date" class="form-control" name="BirthDate" min="1900-01-01" max="@(WorkersMock.DateMaxValue)" required /> <br />
+
+                <label for="Gender">Пол:</label> <br />
+                <select name="Gender" class="form-control" required>
+                    <option disabled selected value="">Выберите пол</option>
+                    <option value="Мужчина">Мужчина</option>
+                    <option value="Женщина">Женщина</option>
+                </select> <br />
+
+
+                <label for="EmploymentDate">Дата приема на работу:</label> <br />
+                <input type="month" class="form-control" name="EmploymentDate" required min="2000-01" max="@(WorkersMock.MonthMaxValue)" /> <br />
+
+                <label for="Education">Образование:</label> <br />
+                <select name="Education" class="form-control" required>
+                    <option disabled selected value="">Выберите образование</option>
+
+                    @{
+                        foreach (string type in WorkersMock.edTypes)
+                        {
+                            <option value="@type">@type</option>
+                        }
+                    }
+
+                </select> <br />
+
+                <label for="Specialty">Специальность:</label><br />
+                <input type="text" class="form-control" name="Specialty" placeholder="Укажите специальность" pattern="[А-Яа-я\s]{2,}" title="Только буквы русского алфавита. Не менее двух символов" /> <br />
+
+                <label for="MilitaryServiceRelation">Отношение к воинской службе</label> <br />
+                <select name="MilitaryServiceRelation" class="form-control" required>
+                    <option disabled selected value="">Выберите отношение к воинской службе</option>
+
+                    @{
+                        foreach (string type in WorkersMock.militaryServiceRelationTypes)
+                        {
+                            <option value="@type">@type</option>
+                        }
+                    }
+
+                </select> <br />
+
+                <input type="submit" value="Готово" class="btn btn-sm btn-outline-secondary" />
+                <button type="reset" class="btn btn-sm btn-outline-secondary" onclick="window.location.href='/Workers/List'">Отмена</button>
+            </div>
+
+        </form>

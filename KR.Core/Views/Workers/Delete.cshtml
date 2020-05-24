@@ -1,0 +1,12 @@
+﻿@using KR.Core.Models
+@model Worker
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post">
+    <h2>Do you really sure you want to delete record about @Model.LastName?</h2>
+    <button type="submit" value="True" name="isAgreed" class="btn btn-sm btn-outline-secondary">submit</button>
+    <button type="reset" class="btn btn-sm btn-outline-secondary" onclick="window.location.href='/Workers/List'">cancel</button>
+</form>
